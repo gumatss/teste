@@ -1,0 +1,89 @@
+
+//Referenciando o botão e o texto da interface para o código
+
+botaoGerarSenha = findViewByid();
+aparecerNaTela = findViewByid();
+
+
+
+//Adiciona a função de click no botão para gerar senha
+
+btnGeneratePassword.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            String password = generatePassword(); //Passando a senha gerada para a variavel
+            textViewPassword.setText("Senha: " + password); //Fazendo a textView 'aparecerNaTela' mostrar a senha gerada pelo botão.
+   }
+}
+
+
+   // Função para gerar a senha com 3 letras minúsculas, 3 números e 3 símbolos, sem shuffle(função para embaralhar dados da String)
+
+    private String generatePassword() {
+        String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+        String numbers = "0123456789";
+        String symbols = "!@#$%&";
+
+        // Gerando 3 letras aleatórias a partir da variavel lowerCaseLetters
+        char letter1 = lowerCaseLetters.charAt(new Random().nextInt(lowerCaseLetters.length()));
+        char letter2 = lowerCaseLetters.charAt(new Random().nextInt(lowerCaseLetters.length()));
+        char letter3 = lowerCaseLetters.charAt(new Random().nextInt(lowerCaseLetters.length()));
+
+        // Gerando 3 números aleatórios a partir da variavel numbers.
+        char number1 = numbers.charAt(new Random().nextInt(numbers.length()));
+        char number2 = numbers.charAt(new Random().nextInt(numbers.length()));
+        char number3 = numbers.charAt(new Random().nextInt(numbers.length()));
+
+        // Gerando 3 símbolos aleatórios a partir da variavel symbols.
+        char symbol1 = symbols.charAt(new Random().nextInt(symbols.length()));
+        char symbol2 = symbols.charAt(new Random().nextInt(symbols.length()));
+        char symbol3 = symbols.charAt(new Random().nextInt(symbols.length()));
+
+        // Intercalar os caracteres na senha final, manualmente
+        String password = "" + letter1 + number1 + symbol1
+                + letter2 + number2 + symbol2
+                + letter3 + number3 + symbol3;
+
+        return password;  //retornou no método onde foi chamada, ou seja, mostrou a senha na textView na função de mostrar a senha.
+
+    }
+}
+
+
+
+CharAt = gerar um indice aleatório da String
+
+char = dado primitivo em Java. Armazena letras, numeros, simbulos e outros caracteres.
+
+
+
+
+
+===================================================================================================
+=======================BOTÃO PARA PASSAR TELA NO AS================================================
+
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+       //Referenciando o botão com o código.
+        Button buttonNext = findViewById(R.id.buttonNext);
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+  		// Criando intenção de passar para a próxima tela, ou seja, executando uma ação para passar para a próxima tela, referenciando a SecondActivity e iniciando-a.
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(intent); //inicia a toda a atividade de avançar para a próxima tela.
+            }
+        });
+    }
+}
+
+MainActivity = primeira tela do app
+SecondActivity = segunda tela do app
+
