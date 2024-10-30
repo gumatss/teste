@@ -1,18 +1,22 @@
 
 //Referenciando o botão e o texto da interface para o código
 
-botaoGerarSenha = findViewByid();
-aparecerNaTela = findViewByid();
+private Button botao;
+private TextView aparecerSenha;
+
+
+botao = findViewById(R.id.botao);
+aparecerSenha = findViewById(R.id.aparecerSenha);
 
 
 
 //Adiciona a função de click no botão para gerar senha
 
-btnGeneratePassword.setOnClickListener(new View.OnClickListener() {
+botao.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             String password = generatePassword(); //Passando a senha gerada para a variavel
-            textViewPassword.setText("Senha: " + password); //Fazendo a textView 'aparecerNaTela' mostrar a senha gerada pelo botão.
+            aparecerSenha.setText("Senha: " + password); //Fazendo a textView 'aparecerNaTela' mostrar a senha gerada pelo botão.
    }
 }
 
